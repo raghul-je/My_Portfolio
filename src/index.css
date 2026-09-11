@@ -1,0 +1,285 @@
+@import "tailwindcss";
+
+:root {
+  --accent: 76, 230, 255;
+  --mint: 15, 244, 164;
+  --violet: 124, 108, 255;
+  --bg: 7, 7, 12;
+  --font-display: "Bricolage Grotesque", Inter, system-ui, sans-serif;
+  --font-body: Inter, system-ui, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, monospace;
+}
+
+html,
+body,
+#root {
+  background: rgb(var(--bg));
+  color: #f4f7ff;
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+}
+
+@media (pointer: fine) {
+  body,
+  a,
+  button,
+  input,
+  textarea {
+    cursor: none;
+  }
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+::selection {
+  background: rgba(76, 230, 255, 0.22);
+  color: #fff;
+}
+
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at center, #000 40%, transparent 78%);
+}
+
+.glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.blob {
+  filter: blur(90px);
+  animation: breath 7s ease-in-out infinite;
+}
+
+.orbit-ball {
+  animation: up-down 1.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes up-down {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes breath {
+  0%,
+  100% {
+    opacity: 0.38;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.62;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 7s ease infinite;
+}
+
+@keyframes jello {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.2, 0.8, 1);
+  }
+  40% {
+    transform: scale3d(0.8, 1.2, 1);
+  }
+  50% {
+    transform: scale3d(1.12, 0.88, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.jello:hover {
+  animation: jello 0.7s both;
+  color: #4ce6ff;
+}
+
+.crt-scan {
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.045) 0,
+    rgba(255, 255, 255, 0.045) 1px,
+    transparent 2px,
+    transparent 3px
+  );
+}
+
+.trail-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10001;
+  mix-blend-mode: screen;
+}
+
+.cursor-core {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #4ce6ff;
+  pointer-events: none;
+  z-index: 10002;
+  mix-blend-mode: screen;
+}
+
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(150, 170, 255, 0.28) 0%, rgba(76, 230, 255, 0.08) 42%, transparent 70%);
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 9998;
+  mix-blend-mode: screen;
+}
+
+.tech-tag {
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-tag::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  opacity: 0.16;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.tech-tag:hover::before {
+  transform: scaleX(1);
+}
+
+.ps2d-root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.ps2d-header {
+  pointer-events: none;
+  position: absolute;
+  inset-inline: 0;
+  top: 20px;
+  text-align: center;
+  z-index: 10;
+  padding: 0 16px;
+}
+
+.ps2d-scene {
+  position: relative;
+  width: min(1240px, 96vw);
+  height: calc(100dvh - 110px);
+  margin: 90px auto 0;
+}
+
+.ps2d-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.ps2d-tile {
+  position: absolute;
+  user-select: none;
+  touch-action: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  will-change: transform;
+  border: 2px solid rgba(0, 0, 0, 0.18);
+}
+
+.ps2d-tile:active {
+  cursor: grabbing;
+}
+
+.ps2d-floor-line {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  z-index: 90;
+  background: linear-gradient(90deg, #4ce6ff, #7c6cff, #0ff4a4);
+}
