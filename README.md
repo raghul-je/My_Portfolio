@@ -5,7 +5,8 @@ India · Remote · Open to full-time, freelance, and remote work
 
 Personal portfolio — custom React, Node, Express, and MySQL products I designed and shipped.
 
-**Live repo:** [github.com/Still-not-found/My_Portfolio](https://github.com/Still-not-found/My_Portfolio)
+**Site:** [still-not-found.github.io/My_Portfolio](https://still-not-found.github.io/My_Portfolio/)  
+**Repo:** [github.com/Still-not-found/My_Portfolio](https://github.com/Still-not-found/My_Portfolio)
 
 ---
 
@@ -88,6 +89,21 @@ npm run preview  # preview the build
 ```
 
 **Needs:** Node.js 20+
+
+---
+
+## GitHub Pages
+
+The site deploys from `main` via GitHub Actions.
+
+1. Push these files to `main` (GitHub Desktop is fine).
+2. Repo → **Settings** → **Pages**.
+3. **Source:** GitHub Actions.
+4. Wait for the **Deploy to GitHub Pages** workflow to finish (Actions tab).
+
+Live URL: `https://still-not-found.github.io/My_Portfolio/`
+
+Local `npm run dev` still works. `base` in `vite.config.js` is `/My_Portfolio/` so production assets load on that path.
 
 ---
 
