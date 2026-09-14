@@ -6,7 +6,7 @@ const LINES = [
   { prefix: '', text: 'Raghul JE — software engineer' },
   { prefix: '$', text: 'ls ./stack' },
   { prefix: '', text: 'react · node · express · mysql' },
-  { prefix: '', text: '11 custom apps  ·  lint ok  ·  ready' },
+  // { prefix: '', text: '11 custom apps  ·  lint ok  ·  ready' },
 ]
 
 export default function BootLoader({ onDone }) {
