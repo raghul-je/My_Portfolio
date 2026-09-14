@@ -4,10 +4,9 @@ import gsap from 'gsap'
 const LINES = [
   { prefix: '$', text: 'whoami' },
   { prefix: '', text: 'Raghul JE — software engineer' },
-  { prefix: '$', text: 'npm run dev' },
+  { prefix: '$', text: 'ls ./stack' },
   { prefix: '', text: 'react · node · express · mysql' },
   { prefix: '', text: '11 custom apps  ·  lint ok  ·  ready' },
-  { prefix: '', text: 'localhost:5200 — final_raghul_portfolio' },
 ]
 
 export default function BootLoader({ onDone }) {
