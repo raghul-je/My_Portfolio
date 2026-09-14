@@ -65,7 +65,7 @@ export default function Header() {
         </button>
       </nav>
       {open && (
-        <div className="md:hidden absolute top-16 glass rounded-xl p-3 flex flex-col gap-1 w-48">
+        <div className="md:hidden absolute top-16 left-1/2 z-50 w-[min(92vw,20rem)] -translate-x-1/2 glass rounded-xl p-3 flex flex-col gap-1">
           {navItems.map((item) => (
             <a
               key={item.id}

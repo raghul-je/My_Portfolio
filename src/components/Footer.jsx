@@ -3,8 +3,8 @@ import { profile, socials } from '../data'
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden px-6 pb-10 pt-20">
-      <div className="blob absolute bottom-0 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-[#8000ff]/40" />
+    <footer className="relative overflow-x-clip px-5 pb-10 pt-14 sm:px-6 md:pt-20">
+      <div className="blob absolute bottom-0 left-1/2 h-[220px] w-[90vw] max-w-[720px] -translate-x-1/2 rounded-full bg-[#8000ff]/40 md:h-[420px]" />
       <div className="relative overflow-visible px-2">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}

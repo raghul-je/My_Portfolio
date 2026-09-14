@@ -3,10 +3,10 @@ import { experience } from '../data'
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative px-6 py-28">
+    <section id="experience" className="relative px-5 py-16 sm:px-6 md:py-28">
       <div className="mx-auto max-w-5xl">
         <p className="font-mono text-xs text-cyan-300">{'</Experience>'}</p>
-        <h2 className="mt-3 font-display text-4xl font-extrabold md:text-6xl">{experience.headline}</h2>
+        <h2 className="mt-3 font-display text-3xl font-extrabold sm:text-4xl md:text-6xl">{experience.headline}</h2>
         <div className="glass mt-10 rounded-3xl p-6">
           <div className="font-mono text-xs text-white/45">{experience.dates}</div>
           <h3 className="mt-1 text-2xl font-semibold">{experience.title}</h3>
@@ -18,9 +18,9 @@ export default function Experience() {
           {experience.chapters.map((job, i) => (
             <motion.article
               key={job.platform}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -4 }}
               className="relative mb-8 glass rounded-2xl p-6"

@@ -3,44 +3,35 @@ import { ArrowUpRight } from 'lucide-react'
 import { moreWork, projects } from '../data'
 import TiltCard from './TiltCard'
 
-const gridVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
-}
-
 export default function Projects() {
   return (
-    <section id="projects" className="relative px-6 py-28">
+    <section id="projects" className="relative px-5 py-16 sm:px-6 md:py-28">
       <div className="mx-auto max-w-6xl">
         <p className="font-mono text-xs text-cyan-300">{'</SelectedWork>'}</p>
-        <h2 className="mt-3 font-display text-4xl font-extrabold md:text-6xl">Shipped products.</h2>
+        <h2 className="mt-3 font-display text-3xl font-extrabold sm:text-4xl md:text-6xl">Shipped products.</h2>
         <p className="mt-4 max-w-xl text-sm text-white/50">
           Custom React + Node + Express + MySQL apps I built — plus the live brand sites. Internal tools are case
           studies, not Kissflow skins.
         </p>
-        <motion.div
-          className="mt-12 grid gap-6 md:grid-cols-2 [perspective:1200px]"
-          variants={gridVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.12 }}
-        >
-          {projects.map((p) => (
-            <TiltCard key={p.id} variants={itemVariants} className="h-full">
+        <div className="mt-10 grid grid-cols-1 gap-5 md:mt-12 md:grid-cols-2 md:gap-6">
+          {projects.map((p, i) => (
+            <TiltCard
+              key={p.id}
+              className="h-full"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.05, margin: '80px 0px' }}
+              transition={{ duration: 0.45, delay: Math.min(i, 6) * 0.04 }}
+            >
               <article className="glass h-full overflow-hidden rounded-3xl transition-colors duration-300 group-hover:bg-white/[0.08]">
-                <div className="relative h-32" style={{ background: `linear-gradient(135deg, ${p.from}, ${p.to})` }}>
+                <div className="relative h-24 sm:h-32" style={{ background: `linear-gradient(135deg, ${p.from}, ${p.to})` }}>
                   <span className="absolute right-4 top-4 rounded-full bg-black/40 px-3 py-1 font-mono text-[11px] uppercase tracking-wider">
                     {p.status}
                   </span>
                 </div>
-                <div className="p-6">
+                <div className="p-5 sm:p-6">
                   <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/45">{p.category}</p>
-                  <h3 className="mt-2 font-display text-2xl font-bold">{p.title}</h3>
+                  <h3 className="mt-2 font-display text-xl font-bold sm:text-2xl">{p.title}</h3>
                   <p className="mt-3 text-sm text-white/60">{p.description}</p>
                   <ul className="mt-4 space-y-1 text-sm text-white/50">
                     {p.features.map((f) => (
@@ -73,7 +64,7 @@ export default function Projects() {
               </article>
             </TiltCard>
           ))}
-        </motion.div>
+        </div>
         <div className="mt-10">
           <p className="font-mono text-xs text-white/40">Also shipped</p>
           <div className="mt-3 flex flex-wrap gap-2">

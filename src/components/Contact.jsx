@@ -10,11 +10,11 @@ const links = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative overflow-hidden px-6 py-28">
+    <section id="contact" className="relative overflow-x-clip px-5 py-16 sm:px-6 md:py-28">
       <div className="blob absolute -bottom-20 right-0 h-80 w-80 rounded-full bg-violet-600/30" />
       <div className="relative mx-auto max-w-5xl">
         <p className="font-mono text-xs text-cyan-300">{'</GetInTouch>'}</p>
-        <h2 className="mt-3 font-display text-4xl font-extrabold md:text-6xl">
+        <h2 className="mt-3 font-display text-3xl font-extrabold sm:text-4xl md:text-6xl">
           Open to work.{' '}
           <span className="animate-gradient bg-gradient-to-r from-cyan-300 via-violet-400 to-emerald-300 bg-clip-text text-transparent">
             Let’s build.
@@ -36,7 +36,7 @@ export default function Contact() {
                 rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{ delay: i * 0.06 }}
                 whileHover={{ y: -4 }}
                 className="glass block rounded-3xl p-6"

@@ -1,15 +1,19 @@
 import { motion } from 'framer-motion'
 import { aboutCopy, education, orbitSkills } from '../data'
 import portrait from '../assets/raghul.jpg'
+import useMq from '../hooks/useMq'
 
 export default function About() {
+  const desktop = useMq('(min-width: 768px)')
+  const orbit = desktop ? 140 : 108
+
   return (
-    <section id="about" className="relative overflow-hidden px-6 py-28">
+    <section id="about" className="relative overflow-x-clip px-5 py-16 sm:px-6 md:py-28">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(124,108,255,0.12),transparent_40%),radial-gradient(circle_at_80%_0%,rgba(76,230,255,0.1),transparent_35%)]" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
         <div>
           <p className="font-mono text-xs text-cyan-300">{'</AboutMe>'}</p>
-          <h2 className="mt-3 font-display text-4xl font-extrabold md:text-6xl">
+          <h2 className="mt-3 font-display text-3xl font-extrabold sm:text-4xl md:text-6xl">
             {aboutCopy.heading}
           </h2>
           <div className="mt-5 max-w-xl space-y-3 text-white/65">
@@ -29,9 +33,9 @@ export default function About() {
             {education.map((ed, i) => (
               <motion.div
                 key={ed.degree}
-                initial={{ opacity: 0, x: -24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
                 transition={{ delay: i * 0.08 }}
                 className="glass rounded-2xl p-4"
               >
@@ -53,7 +57,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="relative mx-auto grid h-[360px] w-[360px] max-w-full place-items-center">
+        <div className="relative mx-auto grid aspect-square w-[min(100%,300px)] place-items-center sm:w-[360px]">
           <svg className="absolute inset-6" viewBox="0 0 200 200">
             <motion.circle
               cx="100"
@@ -79,7 +83,7 @@ export default function About() {
                 <div
                   key={s.label}
                   className="absolute left-1/2 top-1/2"
-                  style={{ transform: `rotate(${deg}deg) translate(140px) rotate(-${deg}deg)` }}
+                  style={{ transform: `rotate(${deg}deg) translate(${orbit}px) rotate(-${deg}deg)` }}
                 >
                   <motion.span
                     whileHover={{ scale: 1.15 }}

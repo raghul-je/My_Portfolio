@@ -7,7 +7,7 @@ export const profile = {
   tagline:
     'I turn messy operations into tools people actually use — React, Node, Express, and MySQL.',
   about:
-    'Since April 2022 I have been shipping custom products at Refex Industries Limited — ITAM, fleet, plant MIS, project tools, sales CRM, and brand sites. I design the product and build it in React, Node, Express, and MySQL. Cursor and Readdy assist; the process and UX calls stay mine.',
+    'Since April 2022 I have been shipping business systems at Refex Industries Limited — CRM, ERP, plant MIS, ITAM, fleet, project tools, and CMS brand sites. I sit with the operation first, then I build the product in React, Node, Express, and MySQL. Cursor and Readdy speed the typing. The process, data model, and UX calls stay mine.',
   location: 'India · Remote',
   availability: ['Open to work', 'Freelance', 'Remote'],
   phone: '9790738549',
@@ -35,7 +35,7 @@ export const roles = ['Software Engineer', 'React', 'Node.js', 'Express', 'MySQL
 export const aboutCopy = {
   heading: 'I sit with the process first.',
   paragraphs: [
-    'I am not a template-and-tweak developer. I sit with sales, plants, vendors, assets, fleets, and project tracking — then I decide what the screen should do, and I build the app.',
+    'I am not a template-and-tweak developer. I sit with sales, plants, vendors, assets, fleets, and project tracking — then I decide what the screen should do, and I build the app. CRM, ERP, MIS, and workflow automation are the same job: turn an operation into software.',
     'The products in my folder are custom React + Node + Express + MySQL apps I shipped myself. Cursor and Readdy AI speed the typing. They do not own the product. Kissflow is a separate low-code track — it is not how these apps were made.',
     'I am open to full-time, freelance, and remote work — especially product-shaped full stack, internal tools, and admin systems that have to survive real operations.',
   ],
@@ -93,8 +93,8 @@ export const skillTiles = [
 
 export const skills = {
   daily: ['React', 'Vite', 'JavaScript', 'TypeScript', 'Tailwind', 'Express', 'Node.js', 'MySQL', 'REST APIs'],
-  comfortable: ['Framer Motion', 'Sequelize', 'Prisma', 'Recharts', 'JWT / auth', 'MUI', 'NestJS', 'Git', 'Docker'],
-  learning: ['Richer motion systems', 'Design systems', 'ERPNext / SuiteCRM history'],
+  comfortable: ['Framer Motion', 'Sequelize', 'Prisma', 'Recharts', 'JWT / auth', 'MUI', 'NestJS', 'Git', 'Docker', 'ERPNext', 'SuiteCRM'],
+  learning: ['Richer motion systems', 'Design systems', 'Business solution architecture'],
 }
 
 export const projects = [
@@ -369,7 +369,7 @@ export const experience = {
   dates: 'April 2022 — Present',
   headline: 'One company. Custom products.',
   summary:
-    'I stayed close to the business — CRM, ERP, plants, assets, fleets, projects — and when the platform was not enough I shipped the product myself in React, Node, Express, and MySQL.',
+    'I stayed close to the business — CRM, ERP, plants, assets, fleets, projects — and when the platform was not enough I shipped the product myself in React, Node, Express, and MySQL. ERPNext, SuiteCRM, and Kissflow are tracks I have used. The custom apps are still mine.',
   chapters: [
     {
       platform: 'SuiteCRM',

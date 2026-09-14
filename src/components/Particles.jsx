@@ -33,7 +33,10 @@ export default function Particles() {
     let h = 0
     let nodes = []
 
-    const targetCount = () => Math.min(MAX_COUNT, Math.max(22, Math.floor((w * h) / 52000)))
+    const targetCount = () => {
+      if (w < 768) return 14
+      return Math.min(MAX_COUNT, Math.max(22, Math.floor((w * h) / 52000)))
+    }
 
     const resize = () => {
       w = window.innerWidth

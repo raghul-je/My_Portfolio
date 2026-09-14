@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Matter from 'matter-js'
 import { skillTiles, skills } from '../data'
+import useMq from '../hooks/useMq'
 
 function shade(hex, amt) {
   const t = hex.replace('#', '')
@@ -33,6 +34,7 @@ function tileSize() {
 export default function SkillsPlayground() {
   const sceneRef = useRef(null)
   const [size, setSize] = useState(140)
+  const physics = useMq('(min-width: 768px)')
   const rand = useMemo(() => seeded(13579), [])
 
   useEffect(() => {
@@ -43,6 +45,7 @@ export default function SkillsPlayground() {
   }, [])
 
   useEffect(() => {
+    if (!physics) return
     const scene = sceneRef.current
     if (!scene) return
     const tiles = Array.from(scene.querySelectorAll('.ps2d-tile'))
@@ -154,7 +157,7 @@ export default function SkillsPlayground() {
       Matter.World.clear(engine.world, false)
       Matter.Engine.clear(engine)
     }
-  }, [size, rand])
+  }, [size, rand, physics])
 
   const font = size > 100 ? 13 : size > 85 ? 11 : 9
 
@@ -163,13 +166,15 @@ export default function SkillsPlayground() {
     <section id="skills" className="ps2d-root bg-[#070a0f]">
       <header className="ps2d-header">
         <p className="font-mono text-xs text-cyan-300">{'</Skills>'}</p>
-        <h2 className="font-display text-[clamp(28px,5vw,56px)] font-extrabold">
+        <h2 className="font-display text-[clamp(28px,8vw,56px)] font-extrabold">
           Skills <span className="text-cyan-300">Playground</span>
         </h2>
-        <p className="mt-1 text-white/60">What I actually build with — React, Node, Express, MySQL. Drag them.</p>
+        <p className="mt-1 text-sm text-white/60 md:text-base">
+          {physics ? 'What I actually build with — React, Node, Express, MySQL. Drag them.' : 'What I actually build with — React, Node, Express, MySQL.'}
+        </p>
       </header>
-      <div ref={sceneRef} className="ps2d-scene">
-        <div className="ps2d-layer">
+      <div ref={sceneRef} className={physics ? 'ps2d-scene' : 'ps2d-scene ps2d-scene-static'}>
+        <div className={physics ? 'ps2d-layer' : 'ps2d-static-grid'}>
           {skillTiles.map((item) => (
             <div
               key={item.key}
@@ -191,8 +196,8 @@ export default function SkillsPlayground() {
         <div className="ps2d-floor-line" />
       </div>
     </section>
-    <section className="px-6 pb-20">
-      <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
+    <section className="px-5 pb-16 sm:px-6 md:pb-20">
+      <div className="mx-auto grid max-w-6xl gap-4 sm:gap-6 md:grid-cols-3 md:gap-8">
         {[
           { key: 'daily', title: 'Daily', note: 'What I reach for first' },
           { key: 'comfortable', title: 'Comfortable', note: 'Shipped, not tutorial' },
