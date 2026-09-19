@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
 export function readTheme() {
-  if (typeof window === 'undefined') return 'light'
-  return localStorage.getItem('theme') === 'dark' ? 'dark' : 'light'
+  if (typeof window === 'undefined') return 'dark'
+  return localStorage.getItem('theme') === 'light' ? 'light' : 'dark'
 }
 
 export function applyTheme(theme) {
