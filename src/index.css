@@ -99,6 +99,14 @@ html[data-theme="dark"] ::selection {
   -webkit-backdrop-filter: blur(16px);
 }
 
+.site-nav {
+  background: rgba(10, 12, 20, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(20px) saturate(1.15);
+  -webkit-backdrop-filter: blur(20px) saturate(1.15);
+}
+
 @media (max-width: 767px) {
   .glass {
     backdrop-filter: none;
