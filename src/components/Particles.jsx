@@ -1,11 +1,10 @@
 import { useEffect, useRef } from 'react'
 
-const LINK_DIST = 120
-const MAX_LINKS = 2
+const LINK_DIST = 150
 const REPULSE = 160
 const BASE_SPEED = 0.38
 const MAX_SPEED = 0.85
-const MAX_COUNT = 42
+const MAX_COUNT = 80
 const CLICK_PUSH = 2
 
 function makeNode(w, h, x, y) {
@@ -34,8 +33,8 @@ export default function Particles() {
     let nodes = []
 
     const targetCount = () => {
-      if (w < 768) return 14
-      return Math.min(MAX_COUNT, Math.max(22, Math.floor((w * h) / 52000)))
+      if (w < 768) return 28
+      return Math.min(MAX_COUNT, Math.max(50, Math.floor((w * h) / 28000)))
     }
 
     const resize = () => {
@@ -88,8 +87,8 @@ export default function Particles() {
     let raf
     const draw = () => {
       ctx.clearRect(0, 0, w, h)
+      const dark = document.documentElement.getAttribute('data-theme') !== 'light'
       const link2 = LINK_DIST * LINK_DIST
-      const used = new Array(nodes.length).fill(0)
 
       for (let i = 0; i < nodes.length; i += 1) {
         const n = nodes[i]
@@ -115,39 +114,33 @@ export default function Particles() {
           n.vx = (n.vx / spd) * MAX_SPEED
           n.vy = (n.vy / spd) * MAX_SPEED
         }
+      }
 
-        const dark = document.documentElement.getAttribute('data-theme') === 'dark'
-        ctx.beginPath()
-        ctx.fillStyle = dark ? 'rgba(255,255,255,0.28)' : 'rgba(15,23,42,0.2)'
-        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2)
-        ctx.fill()
+      ctx.lineWidth = 1
+      ctx.lineCap = 'round'
+      for (let i = 0; i < nodes.length; i += 1) {
+        const a = nodes[i]
+        for (let j = i + 1; j < nodes.length; j += 1) {
+          const b = nodes[j]
+          const d2 = (a.x - b.x) ** 2 + (a.y - b.y) ** 2
+          if (d2 >= link2) continue
+          const fade = 1 - Math.sqrt(d2) / LINK_DIST
+          ctx.beginPath()
+          ctx.strokeStyle = dark
+            ? `rgba(210, 220, 255, ${0.16 * fade})`
+            : `rgba(0, 0, 0, ${0.18 + 0.42 * fade})`
+          ctx.moveTo(a.x, a.y)
+          ctx.lineTo(b.x, b.y)
+          ctx.stroke()
+        }
       }
 
       for (let i = 0; i < nodes.length; i += 1) {
-        if (used[i] >= MAX_LINKS) continue
-        const a = nodes[i]
-        let nearest = []
-        for (let j = i + 1; j < nodes.length; j += 1) {
-          if (used[j] >= MAX_LINKS) continue
-          const b = nodes[j]
-          const d2 = (a.x - b.x) ** 2 + (a.y - b.y) ** 2
-          if (d2 < link2) nearest.push({ j, d2 })
-        }
-        nearest.sort((p, q) => p.d2 - q.d2)
-        for (const item of nearest) {
-          if (used[i] >= MAX_LINKS) break
-          if (used[item.j] >= MAX_LINKS) continue
-          used[i] += 1
-          used[item.j] += 1
-          const alpha = 0.16 * (1 - Math.sqrt(item.d2) / LINK_DIST)
-          ctx.beginPath()
-          const dark = document.documentElement.getAttribute('data-theme') === 'dark'
-          ctx.strokeStyle = dark ? `rgba(210, 220, 255, ${alpha})` : `rgba(14, 116, 144, ${alpha * 1.15})`
-          ctx.lineWidth = 0.8
-          ctx.moveTo(a.x, a.y)
-          ctx.lineTo(nodes[item.j].x, nodes[item.j].y)
-          ctx.stroke()
-        }
+        const n = nodes[i]
+        ctx.beginPath()
+        ctx.fillStyle = dark ? 'rgba(255,255,255,0.28)' : 'rgba(0,0,0,0.55)'
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2)
+        ctx.fill()
       }
 
       raf = requestAnimationFrame(draw)

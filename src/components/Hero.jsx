@@ -120,11 +120,11 @@ export default function Hero() {
         >
           <div className="absolute h-56 w-56 rounded-full bg-cyan-400/20 blur-3xl sm:h-72 sm:w-72 md:h-80 md:w-80" />
           <div className="orbit-ball absolute -right-2 bottom-8 h-12 w-12 rounded-full bg-cyan-400/80 sm:h-16 sm:w-16 md:h-20 md:w-20" />
-          <div className="absolute -left-4 top-6 h-10 w-10 rounded-full bg-violet-500/70 [animation:breath_7s_ease-in-out_infinite] sm:h-14 sm:w-14" />
+          <div className="hero-orbit absolute -left-4 top-6 h-10 w-10 rounded-full bg-violet-500/70 [animation:breath_7s_ease-in-out_infinite] sm:h-14 sm:w-14" />
           <motion.div
             whileHover={{ scale: 1.04 }}
             transition={{ type: 'spring', stiffness: 260, damping: 18 }}
-            className="relative h-48 w-48 overflow-hidden rounded-full border-[5px] border-cyan-300/80 shadow-[0_0_40px_rgba(76,230,255,0.28)] sm:h-64 sm:w-64 md:h-80 md:w-80"
+            className="hero-photo relative h-48 w-48 overflow-hidden rounded-full border-[5px] border-cyan-300/80 shadow-[0_0_40px_rgba(76,230,255,0.28)] sm:h-64 sm:w-64 md:h-80 md:w-80"
           >
             <img
               src={portrait}

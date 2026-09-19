@@ -14,9 +14,16 @@ html[data-theme="dark"] {
 }
 
 html[data-theme="light"] {
-  --accent: 11, 127, 138;
-  --bg: 246, 243, 236;
-  --fg: 22, 24, 28;
+  --accent: 100, 108, 255;
+  --bg: 255, 255, 255;
+  --fg: 36, 36, 36;
+  --primary: #646cff;
+  --secondary: #535bf2;
+  --primary-text: #555cd9;
+  --glass-bg: rgba(0, 0, 0, 0.012);
+  --glass-bg-strong: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.07);
+  --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   color-scheme: light;
 }
 
@@ -26,6 +33,7 @@ body,
   background: rgb(var(--bg));
   color: rgb(var(--fg));
   min-height: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html {
@@ -351,82 +359,81 @@ html[data-theme="dark"] ::selection {
 }
 
 html[data-theme="light"] .blob {
-  opacity: 0.14;
-  filter: blur(110px);
+  opacity: 0.22;
+  background: rgba(100, 108, 255, 0.35) !important;
 }
 
 html[data-theme="light"] .dot-grid {
-  background-color: rgb(var(--bg));
-  background-image: radial-gradient(rgba(28, 25, 23, 0.055) 1px, transparent 1px);
+  background-color: #ffffff;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
 
 html[data-theme="light"] .hero-grid {
-  opacity: 0.35;
+  opacity: 0.45;
   background-image:
-    linear-gradient(rgba(28, 25, 23, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(28, 25, 23, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
 }
 
 html[data-theme="light"] .glass {
-  background: #fffdf8;
-  border: 1px solid rgba(28, 25, 23, 0.08);
-  box-shadow:
-    0 1px 2px rgba(28, 25, 23, 0.04),
-    0 18px 40px rgba(28, 25, 23, 0.05);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 html[data-theme="light"] .text-white {
-  color: #16181d;
+  color: #242424;
 }
 
 html[data-theme="light"] .text-white\/80 {
-  color: #2c313a;
+  color: #3a3a3a;
 }
 
 html[data-theme="light"] .text-white\/70 {
-  color: #3d4450;
+  color: #4a4a4a;
 }
 
 html[data-theme="light"] .text-white\/65 {
-  color: #454c58;
+  color: #505050;
 }
 
 html[data-theme="light"] .text-white\/60 {
-  color: #4f5663;
+  color: #555555;
 }
 
 html[data-theme="light"] .text-white\/55 {
-  color: #5a6270;
+  color: #5c5c5c;
 }
 
 html[data-theme="light"] .text-white\/50 {
-  color: #5c6472;
+  color: #5e5e5e;
 }
 
 html[data-theme="light"] .text-white\/45 {
-  color: #66707e;
+  color: #666666;
 }
 
 html[data-theme="light"] .text-white\/40 {
-  color: #6e7886;
+  color: #6e6e6e;
 }
 
 html[data-theme="light"] .text-white\/35 {
-  color: #7a8492;
+  color: #7a7a7a;
 }
 
 html[data-theme="light"] .text-cyan-300,
 html[data-theme="light"] .text-cyan-300\/90,
 html[data-theme="light"] .hover\:text-cyan-300:hover {
-  color: #0b7f8a;
+  color: var(--primary-text);
 }
 
 html[data-theme="light"] .text-cyan-200,
 html[data-theme="light"] .text-cyan-200\/80,
 html[data-theme="light"] .text-cyan-200\/70 {
-  color: #0f6f78;
+  color: var(--primary);
 }
 
 html[data-theme="light"] .bg-\[\#07070c\],
@@ -437,27 +444,27 @@ html[data-theme="light"] .bg-\[\#070a0f\] {
 html[data-theme="light"] .border-white\/10,
 html[data-theme="light"] .border-white\/15,
 html[data-theme="light"] .border-white\/20 {
-  border-color: rgba(28, 25, 23, 0.1);
+  border-color: var(--glass-border);
 }
 
 html[data-theme="light"] .bg-white\/10 {
-  background-color: rgba(11, 127, 138, 0.1);
+  background-color: rgba(100, 108, 255, 0.1);
 }
 
 html[data-theme="light"] .bg-white\/5 {
-  background-color: rgba(28, 25, 23, 0.04);
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
 html[data-theme="light"] .hover\:bg-white\/10:hover {
-  background-color: rgba(11, 127, 138, 0.08);
+  background-color: rgba(100, 108, 255, 0.1);
 }
 
 html[data-theme="light"] .ring-\[\#07070c\] {
-  --tw-ring-color: #f6f3ec;
+  --tw-ring-color: #ffffff;
 }
 
 html[data-theme="light"] .jello:hover {
-  color: #0b7f8a;
+  color: var(--primary);
 }
 
 html[data-theme="light"] .ps2d-root {
@@ -465,7 +472,7 @@ html[data-theme="light"] .ps2d-root {
 }
 
 html[data-theme="light"] .ps2d-floor-line {
-  background: rgba(28, 25, 23, 0.1);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 html[data-theme="light"] .status-pill {
@@ -473,26 +480,60 @@ html[data-theme="light"] .status-pill {
 }
 
 html[data-theme="light"] .theme-toggle {
-  color: #16181d;
+  color: var(--primary);
 }
 
 html[data-theme="dark"] .theme-toggle {
   color: #f4f7ff;
 }
 
-html[data-theme="light"] .trail-dot,
+html[data-theme="light"] .hero-photo {
+  border-color: var(--primary);
+  box-shadow: 0 0 30px rgba(100, 108, 255, 0.3);
+}
+
+html[data-theme="light"] .orbit-ball,
+html[data-theme="light"] .hero-orbit {
+  background: var(--primary) !important;
+}
+
+html[data-theme="light"] .scroll-progress {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+html[data-theme="light"] .trail-dot {
+  display: none;
+}
+
 html[data-theme="light"] .cursor-glow {
-  mix-blend-mode: multiply;
-  opacity: 0.28;
+  width: 650px;
+  height: 650px;
+  mix-blend-mode: normal;
+  opacity: 1;
+  filter: none;
+  background: radial-gradient(circle, rgba(100, 108, 255, 0.1) 0%, transparent 70%);
 }
 
 html[data-theme="light"] .cursor-core {
   mix-blend-mode: normal;
-  background: #0b7f8a;
+  background: var(--primary);
 }
 
-html[data-theme="light"] canvas {
-  opacity: 0.28;
+html[data-theme="light"] ::-webkit-scrollbar {
+  width: 10px;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
 }
 
 .project-card {
@@ -509,15 +550,13 @@ html[data-theme="light"] canvas {
 
 html[data-theme="light"] .project-card:hover article,
 html[data-theme="light"] .group:hover .project-card article {
-  background: #ffffff;
-  box-shadow:
-    0 1px 2px rgba(28, 25, 23, 0.05),
-    0 22px 50px rgba(28, 25, 23, 0.08);
+  background: var(--glass-bg-strong);
+  box-shadow: var(--glass-shadow);
 }
 
 @media (max-width: 767px) {
   html[data-theme="light"] .glass {
-    background: #fffdf8;
+    background: var(--glass-bg-strong);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
