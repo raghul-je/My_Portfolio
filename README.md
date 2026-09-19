@@ -1,12 +1,12 @@
-# Raghul JE
+# Raghul J E
 
 **Software Engineer · Refex Industries Limited**  
 India · Remote · Open to full-time, freelance, and remote work
 
 Personal portfolio — custom React, Node, Express, and MySQL products I designed and shipped.
 
-**Site:** [still-not-found.github.io/My_Portfolio](https://still-not-found.github.io/My_Portfolio/)  
-**Repo:** [github.com/Still-not-found/My_Portfolio](https://github.com/Still-not-found/My_Portfolio)
+**Site:** [raghul-je.github.io](https://raghul-je.github.io/)  
+**Repo:** [github.com/raghul-je/raghul-je.github.io](https://github.com/raghul-je/raghul-je.github.io)
 
 ---
 
@@ -75,8 +75,8 @@ April 2022 — Present
 ## Run locally
 
 ```bash
-git clone https://github.com/Still-not-found/My_Portfolio.git
-cd My_Portfolio
+git clone https://github.com/raghul-je/raghul-je.github.io.git
+cd raghul-je.github.io
 npm install
 npm run dev
 ```
@@ -101,9 +101,9 @@ The site deploys from `main` via GitHub Actions.
 3. **Source:** GitHub Actions.
 4. Wait for the **Deploy to GitHub Pages** workflow to finish (Actions tab).
 
-Live URL: `https://still-not-found.github.io/My_Portfolio/`
+Live URL: `https://raghul-je.github.io/`
 
-Local `npm run dev` still works. `base` in `vite.config.js` is `/My_Portfolio/` so production assets load on that path.
+Local `npm run dev` still works. `base` in `vite.config.js` is `/` so production assets load at the user-site root.
 
 ---
 
@@ -124,8 +124,8 @@ Local `npm run dev` still works. `base` in `vite.config.js` is `/My_Portfolio/` 
 | --- | --- |
 | Phone | [+91 97907 38549](tel:+919790738549) |
 | LinkedIn | [raghul-je](https://www.linkedin.com/in/raghul-je) |
-| GitHub | [Still-not-found](https://github.com/Still-not-found/Still-not-found) |
+| GitHub | [raghul-je](https://github.com/raghul-je) |
 
 ---
 
-© 2026 Raghul JE
+© 2026 Raghul J E

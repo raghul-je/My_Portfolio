@@ -1,10 +1,55 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
+    <script>
+      document.documentElement.setAttribute(
+        'data-theme',
+        localStorage.getItem('theme') === 'dark' ? 'dark' : 'light',
+      )
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Raghul JE · Software Engineer</title>
-    <meta name="description" content="Raghul JE — software engineer at Refex. Custom React, Node, Express, and MySQL products: ITAM, Mobility, plant MIS, project tools, and live brand sites." />
+    <title>Raghul J E | Software Engineer</title>
+    <meta
+      name="description"
+      content="Raghul J E — software engineer at Refex. Custom React, Node, Express, and MySQL products: ITAM, Mobility, plant MIS, project tools, and live brand sites."
+    />
+    <link rel="canonical" href="https://raghul-je.github.io/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Raghul J E | Software Engineer" />
+    <meta
+      property="og:description"
+      content="Raghul J E — software engineer at Refex. Custom React, Node, Express, and MySQL products: ITAM, Mobility, plant MIS, project tools, and live brand sites."
+    />
+    <meta property="og:url" content="https://raghul-je.github.io/" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Raghul J E | Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Raghul J E — software engineer at Refex. Custom React, Node, Express, and MySQL products: ITAM, Mobility, plant MIS, project tools, and live brand sites."
+    />
+    <meta name="twitter:url" content="https://raghul-je.github.io/" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Raghul J E",
+        "url": "https://raghul-je.github.io/",
+        "jobTitle": "Software Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Refex Industries Limited"
+        },
+        "sameAs": [
+          "https://github.com/raghul-je",
+          "https://www.linkedin.com/in/raghul-je"
+        ]
+      }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;800&family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />

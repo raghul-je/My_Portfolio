@@ -116,8 +116,9 @@ export default function Particles() {
           n.vy = (n.vy / spd) * MAX_SPEED
         }
 
+        const dark = document.documentElement.getAttribute('data-theme') === 'dark'
         ctx.beginPath()
-        ctx.fillStyle = 'rgba(255,255,255,0.28)'
+        ctx.fillStyle = dark ? 'rgba(255,255,255,0.28)' : 'rgba(15,23,42,0.2)'
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2)
         ctx.fill()
       }
@@ -140,7 +141,8 @@ export default function Particles() {
           used[item.j] += 1
           const alpha = 0.16 * (1 - Math.sqrt(item.d2) / LINK_DIST)
           ctx.beginPath()
-          ctx.strokeStyle = `rgba(210, 220, 255, ${alpha})`
+          const dark = document.documentElement.getAttribute('data-theme') === 'dark'
+          ctx.strokeStyle = dark ? `rgba(210, 220, 255, ${alpha})` : `rgba(14, 116, 144, ${alpha * 1.15})`
           ctx.lineWidth = 0.8
           ctx.moveTo(a.x, a.y)
           ctx.lineTo(nodes[item.j].x, nodes[item.j].y)

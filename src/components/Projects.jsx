@@ -1,7 +1,42 @@
-import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { moreWork, projects } from '../data'
 import TiltCard from './TiltCard'
+
+function ProjectBody({ p, clickable }) {
+  return (
+    <article className="glass h-full overflow-hidden rounded-3xl transition-colors duration-300">
+      <div className="relative h-24 sm:h-32" style={{ background: `linear-gradient(135deg, ${p.from}, ${p.to})` }}>
+        <span className="status-pill absolute right-4 top-4 rounded-full bg-black/40 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white">
+          {p.status}
+        </span>
+      </div>
+      <div className="p-5 sm:p-6">
+        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/45">{p.category}</p>
+        <h3 className="mt-2 font-display text-xl font-bold sm:text-2xl">{p.title}</h3>
+        <p className="mt-3 text-sm text-white/60">{p.description}</p>
+        <ul className="mt-4 space-y-1 text-sm text-white/50">
+          {p.features.map((f) => (
+            <li key={f}>→ {f}</li>
+          ))}
+        </ul>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {p.technologies.map((t) => (
+            <span key={t} className="tech-tag rounded-full border border-white/10 px-3 py-1 text-xs text-cyan-200">
+              {t}
+            </span>
+          ))}
+        </div>
+        {clickable ? (
+          <span className="mt-6 inline-flex items-center gap-1 text-sm text-cyan-300">
+            Open live site <ArrowUpRight size={16} />
+          </span>
+        ) : (
+          <p className="mt-6 text-sm text-white/35">Internal — no public URL</p>
+        )}
+      </div>
+    </article>
+  )
+}
 
 export default function Projects() {
   return (
@@ -23,45 +58,19 @@ export default function Projects() {
               viewport={{ once: true, amount: 0.05, margin: '80px 0px' }}
               transition={{ duration: 0.45, delay: Math.min(i, 6) * 0.04 }}
             >
-              <article className="glass h-full overflow-hidden rounded-3xl transition-colors duration-300 group-hover:bg-white/[0.08]">
-                <div className="relative h-24 sm:h-32" style={{ background: `linear-gradient(135deg, ${p.from}, ${p.to})` }}>
-                  <span className="absolute right-4 top-4 rounded-full bg-black/40 px-3 py-1 font-mono text-[11px] uppercase tracking-wider">
-                    {p.status}
-                  </span>
-                </div>
-                <div className="p-5 sm:p-6">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/45">{p.category}</p>
-                  <h3 className="mt-2 font-display text-xl font-bold sm:text-2xl">{p.title}</h3>
-                  <p className="mt-3 text-sm text-white/60">{p.description}</p>
-                  <ul className="mt-4 space-y-1 text-sm text-white/50">
-                    {p.features.map((f) => (
-                      <li key={f}>→ {f}</li>
-                    ))}
-                  </ul>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {p.technologies.map((t) => (
-                      <span
-                        key={t}
-                        className="tech-tag rounded-full border border-white/10 px-3 py-1 text-xs text-cyan-200"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                  {p.liveUrl ? (
-                    <a
-                      href={p.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-6 inline-flex items-center gap-1 text-sm text-cyan-300"
-                    >
-                      Open live site <ArrowUpRight size={16} />
-                    </a>
-                  ) : (
-                    <p className="mt-6 text-sm text-white/35">Internal — no public URL</p>
-                  )}
-                </div>
-              </article>
+              {p.liveUrl ? (
+                <a
+                  href={p.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="project-card"
+                  aria-label={`Open ${p.title} live site`}
+                >
+                  <ProjectBody p={p} clickable />
+                </a>
+              ) : (
+                <ProjectBody p={p} clickable={false} />
+              )}
             </TiltCard>
           ))}
         </div>

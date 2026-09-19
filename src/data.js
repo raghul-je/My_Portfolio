@@ -17,7 +17,7 @@ export const profile = {
 }
 
 export const socials = {
-  github: 'https://github.com/Still-not-found/Still-not-found',
+  github: 'https://github.com/raghul-je',
   linkedin: 'https://www.linkedin.com/in/raghul-je',
   phone: profile.phoneHref,
 }

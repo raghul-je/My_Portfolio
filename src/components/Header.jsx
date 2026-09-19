@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { Moon, Sun } from 'lucide-react'
 import { navItems, profile } from '../data'
+import useTheme from '../hooks/useTheme'
 
 export default function Header() {
+  const { theme, toggle } = useTheme()
   const [active, setActive] = useState('home')
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
@@ -56,6 +59,14 @@ export default function Header() {
             </a>
           ))}
         </div>
+        <button
+          type="button"
+          className="theme-toggle grid h-8 w-8 place-items-center rounded-lg hover:bg-white/10"
+          onClick={toggle}
+          aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+        >
+          {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+        </button>
         <button
           type="button"
           className="md:hidden px-3 py-1 text-sm"

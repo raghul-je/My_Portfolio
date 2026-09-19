@@ -18,7 +18,7 @@ export default function App() {
   const endBoot = useCallback(() => setBooting(false), [])
 
   return (
-    <div className="dot-grid relative min-h-screen bg-[#07070c] text-white">
+    <div className="dot-grid relative min-h-screen">
       {booting && <BootLoader onDone={endBoot} />}
       <Particles />
       <CursorTrail />

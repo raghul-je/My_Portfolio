@@ -5,7 +5,7 @@ import { profile, socials } from '../data'
 const links = [
   { label: 'Call', href: socials.phone, detail: profile.phoneLabel, icon: Phone },
   { label: 'LinkedIn', href: socials.linkedin, detail: 'raghul-je', icon: Linkedin },
-  { label: 'GitHub', href: socials.github, detail: 'Still-not-found', icon: Github },
+  { label: 'GitHub', href: socials.github, detail: 'raghul-je', icon: Github },
 ]
 
 export default function Contact() {
