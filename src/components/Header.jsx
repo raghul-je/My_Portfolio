@@ -34,7 +34,7 @@ export default function Header() {
   return (
     <header className="fixed top-4 inset-x-0 z-50 flex justify-center px-4">
       <nav
-        className={`glass flex items-center gap-2 rounded-2xl px-3 py-2 transition-all ${
+        className={`site-nav glass flex items-center gap-2 rounded-2xl px-3 py-2 transition-all ${
           scrolled ? 'border-white/20 shadow-lg shadow-cyan-500/5' : ''
         }`}
       >
@@ -76,7 +76,7 @@ export default function Header() {
         </button>
       </nav>
       {open && (
-        <div className="md:hidden absolute top-16 left-1/2 z-50 w-[min(92vw,20rem)] -translate-x-1/2 glass rounded-xl p-3 flex flex-col gap-1">
+        <div className="site-nav md:hidden absolute top-16 left-1/2 z-50 w-[min(92vw,20rem)] -translate-x-1/2 glass rounded-xl p-3 flex flex-col gap-1">
           {navItems.map((item) => (
             <a
               key={item.id}
