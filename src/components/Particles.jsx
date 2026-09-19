@@ -128,7 +128,7 @@ export default function Particles() {
           ctx.beginPath()
           ctx.strokeStyle = dark
             ? `rgba(210, 220, 255, ${0.16 * fade})`
-            : `rgba(0, 0, 0, ${0.08 + 0.18 * fade})`
+            : `rgba(0, 0, 0, ${0.05 + 0.12 * fade})`
           ctx.moveTo(a.x, a.y)
           ctx.lineTo(b.x, b.y)
           ctx.stroke()
@@ -138,7 +138,7 @@ export default function Particles() {
       for (let i = 0; i < nodes.length; i += 1) {
         const n = nodes[i]
         ctx.beginPath()
-        ctx.fillStyle = dark ? 'rgba(255,255,255,0.28)' : 'rgba(0,0,0,0.28)'
+        ctx.fillStyle = dark ? 'rgba(255,255,255,0.28)' : 'rgba(0,0,0,0.2)'
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2)
         ctx.fill()
       }
